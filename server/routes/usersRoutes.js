@@ -29,8 +29,13 @@ usersRouter.post('/login-user', async (req, res) => {
     try {
         const {loginUserName, loginUserPassword} = req.body;
         const loginUser = await Users.findOne({userName: loginUserName});
-        // res.json(loginUser);
-        res.send('Logged in successfully');
+        if(!loginUser){
+            res.status(400).send("Invalid Username");
+        }else if(loginUser.userPassword !== loginUserPassword){
+            res.status(400).send("Invalid Password");
+        }else{
+            res.status(200).send("Login successful");
+        }
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });

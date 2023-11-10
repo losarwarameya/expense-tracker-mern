@@ -55,11 +55,11 @@ app.post('/login-user', async (req,res) => {
         const loginUser = await Users.findOne({userName:loginUserName});
         res.json(loginUser);
     } catch (error) {
-        console.error(error);
+        console.error("request to add entry failed");
     }
 })
 
-//listen server
-// app.listen(5000,() => {
-//     console.log('server listening at port 5000');
-// })
+// listen server
+app.listen(5000,() => {
+    console.log('server listening at port 5000');
+})

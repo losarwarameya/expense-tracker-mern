@@ -2,12 +2,44 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/expense-tracker');
 
 const UsersSchema = new mongoose.Schema({
-    userName: String,
-    userPassword: String
-});
+    userName: {
+      type:String,
+      required:true,
+      unique:true
+    },
+    userPassword: {
+      type:String,
+      required:true
+    }
+},{timestamps:true});
+
+const EntriesSchema = new mongoose.Schema({
+    heading: {
+      type: String,
+      require: true,
+    },
+    type: {
+      type: String,
+      required: true,
+    },
+    amount: {
+      type: Number,
+      require: true,
+    },
+    description: {
+      type: String,
+    },
+    userId:{
+      type:String,
+      require:true
+    }
+  },{timestamps: true});
 
 const Users = mongoose.model('users', UsersSchema);
 
+const Entries = mongoose.model('entries',EntriesSchema);
+
 module.exports = {
-    Users
+    Users,
+    Entries
 };

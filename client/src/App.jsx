@@ -5,14 +5,14 @@ import UserLoginPage from "./components/UserLoginPage";
 import HomePage from "./components/HomePage";
 
 const App = () => {
-  const [userId, setUserId] = useState(null);
+  // const [userId, setUserId] = useState(null);
 
-  useEffect(() => {
-    const storedUserId = localStorage.getItem("userId");
-    if (storedUserId) {
-      setUserId(storedUserId);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedUserId = localStorage.getItem("userId");
+  //   if (storedUserId) {
+  //     setUserId(storedUserId);
+  //   }
+  // }, []);
 
   return (
     <BrowserRouter>

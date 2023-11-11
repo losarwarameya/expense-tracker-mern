@@ -6,7 +6,7 @@ const Hero = (props) => {
   const { hero } = props;
 
   return (
-    <div>
+    <div className="w-10/12">
       {hero === "Dashboard" ? (
         <Dashboard />
       ) : hero === "AddEntry" ? (

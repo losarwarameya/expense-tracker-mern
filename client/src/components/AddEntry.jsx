@@ -64,6 +64,7 @@ const AddEntry = () => {
         >
           <input
             type="checkbox"
+            name="type"
             checked={entry.type === 'income'}
             onChange={() => setEntry({ ...entry, type: entry.type==="income" ? 'expense' : 'income' })}
             className="hidden"
@@ -77,7 +78,7 @@ const AddEntry = () => {
           value={entry.type}
           onChange={(e) => setEntry({ ...entry, type: e.target.value })}
         /> */}
-        <input type="date" value={entry.date} onChange={e => setEntry({...entry,date:e.target.value})}/>
+        <input type="date" name="date" value={entry.date} onChange={e => setEntry({...entry,date:e.target.value})}/>
         <input
           type="text"
           name="description"

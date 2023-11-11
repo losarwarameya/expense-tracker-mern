@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Sidebar from './Sidebar'
 import Hero from './Hero'
 
 const HomePage = () => {
+
+  const [hero,setHero] = useState('Dashboard');
+  const handleHeroSelection = (val) => {
+    console.log("hi");
+    setHero(val);
+  }
+
   return (
-    <div>
-        <Sidebar />
-        <Hero />
+    <div className='flex'>
+        <Sidebar handleHeroSelection={handleHeroSelection}/>
+        <Hero hero={hero}/>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import ChartApp from './ChartApp';
 
 const Dashboard = () => {
   const [entries,setEntries] = useState([]);
@@ -21,6 +22,7 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard</h1>
+      <ChartApp />
       <ul>
         {
           entries.map((entry) => {

@@ -22,6 +22,7 @@ const UserRegisterPage = () => {
 
   return (
     <div>
+      <h1>Registration Page</h1>
       <form onSubmit={(e) => handleUserRegisterSubmit(e)}>
         <input
           name="userName"

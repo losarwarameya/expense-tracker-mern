@@ -1,15 +1,17 @@
-import React from 'react'
-// import {Browser}
-import UserRegisterPage from './components/UserRegisterPage'
-import UserLoginPage from './components/UserLoginPage'
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UserRegisterPage from "./components/UserRegisterPage";
+import UserLoginPage from "./components/UserLoginPage";
 
 const App = () => {
   return (
-    <div>
-      {/* <UserRegisterPage /> */}
-      <UserLoginPage />
-    </div>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/register" element={<UserRegisterPage />} />
+        <Route path="/login" element={<UserLoginPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;

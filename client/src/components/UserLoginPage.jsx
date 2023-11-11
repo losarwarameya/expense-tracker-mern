@@ -1,20 +1,25 @@
 import React,{useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 const UserLoginPage = () => {
-    const [userName, setUserName] = useState("");
-  const [userPassword, setUserPassword] = useState("");
+    const [loginUserName, setLoginUserName] = useState("");
+  const [loginUserPassword, setLoginUserPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleUserLoginSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post("http://localhost:5000/login-user", {
-        userName,
-        userPassword,
+        loginUserName,
+        loginUserPassword,
       });
-
-      console.log("User logged in successfully:", response.data);
+      // const {userId} = response.data;
+      localStorage.setItem("userId",response.data);
+      navigate('/home');
+      console.log(response.status);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -28,15 +33,15 @@ const UserLoginPage = () => {
           name="userName"
           placeholder="Username"
           type="text"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
+          value={loginUserName}
+          onChange={(e) => setLoginUserName(e.target.value)}
         />
         <input
           name="userPassword"
           placeholder="Password"
           type="text"
-          value={userPassword}
-          onChange={(e) => setUserPassword(e.target.value)}
+          value={loginUserPassword}
+          onChange={(e) => setLoginUserPassword(e.target.value)}
         />
         <button type="submit">Login</button>
       </form>

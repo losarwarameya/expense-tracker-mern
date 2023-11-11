@@ -5,7 +5,11 @@ const entriesRouter = express.Router();
 
 entriesRouter.get('/entries', async (req,res) => {
     try {
-        const entriesData = await Entries.find();
+        const {userId} = req.query;
+        // const userId = localStorage.getItem("userId");
+        const entriesData = await Entries.find({userId});
+        console.log(req.body);
+        // const entriesData = await Entries.find();
         res.json(entriesData);
     } catch (error) {
         console.error(error);

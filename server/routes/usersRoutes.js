@@ -34,7 +34,9 @@ usersRouter.post('/login-user', async (req, res) => {
         }else if(loginUser.userPassword !== loginUserPassword){
             res.status(400).send("Invalid Password");
         }else{
-            res.status(200).send("Login successful");
+            res.send(loginUser._id);
+            // res.json(loginUser)
+            // res.status(200).send("Login successful");
         }
     } catch (error) {
         console.error(error);

@@ -22,13 +22,13 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard</h1>
-      <ChartApp />
+      {/* <ChartApp /> */}
       <ul>
         {
           entries.map((entry) => {
             return (
               <li key={entry._id}>
-                <h2>{entry.heading}</h2>
+                <h2>{entry.title}</h2>
               </li>
             )
           })

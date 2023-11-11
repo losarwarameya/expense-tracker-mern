@@ -17,8 +17,8 @@ entriesRouter.get('/entries', async (req,res) => {
 })
 
 const validateEntry = (req,res,next) => {
-    const {heading,type,amount,userId} = req.body;
-    if(heading == null || type == null || amount == null || userId == null){
+    const {title,type,amount,userId} = req.body;
+    if(title == null || type == null || amount == null || userId == null){
         return res.status(400).send('Required field missing');
     }
     next();
@@ -38,8 +38,8 @@ entriesRouter.post('/add-entry', validateEntry,async (req,res) => {
 entriesRouter.put('/update-entry/:id', async(req,res) => {
     try {
         const { id } = req.params;
-        const { heading, type, amount, description } = req.body; // replace these with the actual fields you want to update
-        const updatedEntry = await Entries.findByIdAndUpdate(id, { heading, type, amount, description }, { new: true });
+        const { title, type, amount, description } = req.body; // replace these with the actual fields you want to update
+        const updatedEntry = await Entries.findByIdAndUpdate(id, { title, type, amount, description }, { new: true });
         if (!updatedEntry) {
             return res.status(404).send('Entry not found');
         }

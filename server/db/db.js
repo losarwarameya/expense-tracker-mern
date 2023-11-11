@@ -14,9 +14,9 @@ const UsersSchema = new mongoose.Schema({
 },{timestamps:true});
 
 const EntriesSchema = new mongoose.Schema({
-    heading: {
+    title: {
       type: String,
-      require: true,
+      required: true,
     },
     type: {
       type: String,
@@ -24,14 +24,17 @@ const EntriesSchema = new mongoose.Schema({
     },
     amount: {
       type: Number,
-      require: true,
+      required: true,
     },
     description: {
       type: String,
     },
     userId:{
       type:String,
-      require:true
+      required:true
+    },date:{
+      type:Date,
+      required:true
     }
   },{timestamps: true});
 

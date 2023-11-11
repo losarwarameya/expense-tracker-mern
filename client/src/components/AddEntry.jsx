@@ -5,10 +5,11 @@ const AddEntry = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const [entry, setEntry] = useState({
-    heading: "",
+    title: "",
     amount: 0,
     type: "expense",
     description: "",
+    date:new Date().toISOString().split('T')[0],
     userId: localStorage.getItem("userId"),
   });
 
@@ -26,10 +27,11 @@ const AddEntry = () => {
       );
       console.log("Entry added : ", response.data);
       setEntry({
-        heading: "",
+        title: "",
         amount: 0,
         type: "expense",
         description: "",
+        date:new Date().toISOString().split('T')[0],
         userId: localStorage.getItem("userId"),
       });
       setErrorMessage("");
@@ -45,9 +47,9 @@ const AddEntry = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          name="heading"
-          value={entry.heading}
-          onChange={(e) => setEntry({ ...entry, heading: e.target.value })}
+          name="title"
+          value={entry.title}
+          onChange={(e) => setEntry({ ...entry, title: e.target.value })}
         />
         <input
           type="number"
@@ -75,6 +77,7 @@ const AddEntry = () => {
           value={entry.type}
           onChange={(e) => setEntry({ ...entry, type: e.target.value })}
         /> */}
+        <input type="date" value={entry.date} onChange={e => setEntry({...entry,date:e.target.value})}/>
         <input
           type="text"
           name="description"

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Chart from "./Chart";
 
 const Dashboard = () => {
   const [entries, setEntries] = useState([]);
@@ -21,12 +22,12 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="flex">
+    <div>
       {/* <h1>Dashboard</h1> */}
-      <div className="w-1/3 bg-slate-400">
-        hi
+      <div className="bg-slate-500 flex items-center justify-center p-5">
+        <Chart entries={entries} />
       </div>
-      <div className="w-1/3">
+      <div className="">
         <h2>Latest Entries</h2>
         <ul>
           {entries
@@ -42,7 +43,7 @@ const Dashboard = () => {
             })}
         </ul>
       </div>
-      <div className="bg-black w-1/3">
+      <div className="bg-black">
             
       </div>
     </div>

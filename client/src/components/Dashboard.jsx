@@ -22,29 +22,31 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div>
+    <div className="h-[100vh]">
       {/* <h1>Dashboard</h1> */}
-      <div className="bg-slate-500 flex items-center justify-center p-5">
+      <div className="bg-slate-500 flex items-center justify-center p-5 w-full h-[50vh]">
         <Chart entries={entries} />
       </div>
-      <div className="">
-        <h2>Latest Entries</h2>
-        <ul>
-          {entries
-            .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
-            .slice(0, 3)
-            .map((entry) => {
-              return (
-                <li key={entry._id}>
-                  <h2>{entry.title}</h2>
-                  <p>${entry.amount}</p>
-                </li>
-              );
-            })}
-        </ul>
-      </div>
-      <div className="bg-black">
-            
+      <div className="flex h-[50vh]">
+        <div className="w-1/2 bg-slate-800 text-white h-full">
+          <h2>Latest Entries</h2>
+          <ul>
+            {entries
+              .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+              .slice(0, 3)
+              .map((entry) => {
+                return (
+                  <li key={entry._id}>
+                    <h2>{entry.title}</h2>
+                    <p>${entry.amount}</p>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
+        <div className="h-full w-1/2 bg-orange-300">
+          hi
+        </div>
       </div>
     </div>
   );
